@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+</head>
+<body>
+  <h1>Even or Odd</h1>
+  <input type="number" id="number">
+  <button onclick="checkEvenOdd()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkEvenOdd() {
+      const number = parseInt(document.getElementById('number').value);
+      const result = (number % 2 === 0) ? "The Number is Even" : "The Number is Odd";
+      document.getElementById('result').innerText = `Result: ${result}`;
+    }
+</script>
+</body>
+</html>

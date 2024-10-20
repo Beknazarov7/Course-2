@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 12</title>
+</head>
+<body>
+    <h1>Find Intersection of Two Arrays</h1>
+    <label for="array1">Enter first Array separated in commas: </label>
+    <input type="text" id="array1">
+    <label for="array2">Enter Second Array separated in commas: </label>
+    <input type="text" id="array2">
+    <button onclick="findIntersection()">Find Intersection</button>
+    <p id="result"></p>
+
+    <script>
+      function findIntersection() {
+        const array1 = document.getElementById('array1').value.split(',').map(Number);
+        const array2 = document.getElementById('array2').value.split(',').map(Number);
+        const intersection = array1.filter(value => array2.includes(value));
+        document.getElementById('result').innerText = `Intersection: ${intersection}`;
+      }
+    </script>
+</body>
+</html>

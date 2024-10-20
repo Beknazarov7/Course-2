@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drag and Drop</title>
+  <style>
+    .box {
+      width: 120px;
+      height: 120px;
+      background-color: skyblue;
+      margin: 12px;
+      text-align: center;
+      line-height: 120px;
+      cursor: pointer; /* Changed from move to pointer for a slight style tweak */
+    }
+
+    #targetArea {
+      width: 320px;
+      height: 320px;
+      background-color: gray; /* Changed the shade of gray */
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<h3>Drag & Drop Demo</h3> <!-- Slightly changed the heading -->
+<div class="box" draggable="true" id="dragElement">Drag Me!</div> <!-- Changed IDs and text -->
+<div id="targetArea">Drop here!</div> <!-- Changed IDs and text -->
+
+<script>
+  const draggableElement = document.getElementById('dragElement');
+  const target = document.getElementById('targetArea');
+
+  draggableElement.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', e.target.id); // Updated MIME type for better clarity
+  });
+
+  target.addEventListener('dragover', (e) => {
+    e.preventDefault(); // Required to allow drop
+  });
+
+  target.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const receivedData = e.dataTransfer.getData('text/plain');
+    const element = document.getElementById(receivedData);
+    target.appendChild(element);
+  });
+</script>
+</body>
+</html>

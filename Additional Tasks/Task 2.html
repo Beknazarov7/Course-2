@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Infinite Scroll</title>
+  <style>
+    .content-block {
+      background-color: #e8e8e8;
+      border: 2px solid #ccc;
+      margin: 12px;
+      padding: 25px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+<h3>Continuous Scroll Loading</h3>
+<div id="contentArea"></div> <
+<div id="footer">Fetching more content...</div>
+
+<script>
+  const contentArea = document.getElementById('contentArea');
+  const footer = document.getElementById('footer');
+  let contentCount = 0;
+
+  function populateContent() {
+    for (let j = 0; j < 10; j++) {
+      let contentDiv = document.createElement('div');
+      contentDiv.classList.add('content-block');
+      contentDiv.textContent = `Content Block ${++contentCount}`;
+      contentArea.appendChild(contentDiv);
+    }
+  }
+
+
+  populateContent();
+
+  const scrollObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      populateContent();
+    }
+  }, { rootMargin: '200px' }); 
+
+  scrollObserver.observe(footer);
+</script>
+</body>
+</html>

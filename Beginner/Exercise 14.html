@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 14</title>
+</head>
+<body>
+    <h1>Remove Duplicates from Array</h1>
+    <label for="arrayInput">Enter numbers separated by commas:</label>
+    <input type="text" id="arrayInput">
+    <button onclick="removeDuplicates()">Remove Duplicates</button>
+    <p id="result"></p>
+
+    <script>
+      function removeDuplicates() {
+        const numbers = document.getElementById('arrayInput').value.split(',').map(Number);
+        const uniqueNumbers = [...new Set(numbers)];
+        document.getElementById('result').innerText = `Unique Array: ${uniqueNumbers}`;
+      }
+    </script>
+</body>
+</html>

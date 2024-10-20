@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 9</title>
+</head>
+<body>
+    <h1>Check Substring Presence</h1>
+    <label for="mainString">Enter main string:</label>
+    <input type="text" id="mainString">
+    <label for="substring">Enter substring:</label>
+    <input type="text" id="substring">
+    <button onclick="checkSubstring()">Check Substring</button>
+    <p id="result"></p>
+
+    <script>
+      function checkSubstring() {
+        const mainStr = document.getElementById('mainString').value;
+        const subStr = document.getElementById('substring').value;
+        const result = mainStr.includes(subStr);
+        document.getElementById('result').innerText = result ? 'Substring found' : 'Substring not found';
+      }
+    </script>
+</body>
+</html>

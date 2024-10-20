@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 15</title>
+</head>
+<body>
+    <h1>Implement a Basic To-Do List</h1>
+    <label for="taskInput">Enter a task: </label>
+    <input type="text" id="taskInput">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="todoList"></ul>
+
+    <script>
+      function addTask() {
+        const task = document.getElementById('taskInput').value;
+        if (task) {
+          const li = document.createElement('li');
+          li.innerText = task;
+          li.addEventListener('click', () => li.style.textDecoration = 'line-through');
+          document.getElementById('todoList').appendChild(li);
+          document.getElementById('taskInput').value = '';
+        }
+      }
+    </script>
+</body>
+</html>

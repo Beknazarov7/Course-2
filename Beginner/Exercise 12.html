@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 12</title>
+</head>
+<body>
+    <h1>Generate Random Number</h1>
+    <label for="min">Enter Min Value:</label>
+    <input type="number" id="min">
+    <label for="max">Enter Max Value:</label>
+    <input type="number" id="max">
+    <button onclick="generateRandom()">Generate</button>
+    <p id="result"></p>
+
+    <script>
+      function generateRandom() {
+        const min = parseInt(document.getElementById('min').value);
+        const max = parseInt(document.getElementById('max').value);
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById('result').innerText = `Random Number: ${randomNumber}`;
+      }
+    </script>
+
+</body>
+</html>

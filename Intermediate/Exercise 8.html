@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 8</title>
+</head>
+<body>
+    <h1>Get Unique Values from Array</h1>
+    <label for="arrayInput">Enter numbers separated by commas</label>
+    <input type="text" id="arrayInput">
+    <button onclick="getUniqueValues()">Get Unique Values</button>
+    <p id="result"></p>
+
+    <script>
+      function getUniqueValues() {
+        const array = document.getElementById('arrayInput').value.split(',').map(Number);
+        const uniqueArray = [...new Set(array)];
+        document.getElementById('result').innerText = `Unique Array: ${uniqueArray}`;
+      }
+    </script>
+</body>
+</html>

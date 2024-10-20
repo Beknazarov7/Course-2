@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5</title>
+</head>
+<body>
+    <h1>Find Prime Numbers</h1>
+    <label for="limit">Enter limit</label>
+    <input type="number" id="limit">
+    <button onclick="findPrimes()">Find Primes</button>
+    <p id="result"></p>
+
+    <script>
+      function findPrimes() {
+        const limit = parseInt(document.getElementById('limit').value);
+        const primes = [];
+
+        for (let i = 2; i <= limit; i++) {
+          let isPrime = true;
+          for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+          if (isPrime) primes.push(i);
+        }
+
+        document.getElementById('result').innerText = `Primes up to ${limit}: ${primes}`;
+      }
+    </script>
+</body>
+</html>

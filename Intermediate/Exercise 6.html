@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 6</title>
+</head>
+<body>
+    <h1>Check for Anagram</h1>
+    <label for="string1">Enter first string:</label>
+    <input type="text" id="string1">
+    <label for="string2">Enter second string:</label>
+    <input type="text" id="string2">
+    <button onclick="checkAnagram()">Check Anagram</button>
+    <p id="result"></p>
+
+    <script>
+      function checkAnagram() {
+        const str1 = document.getElementById('string1').value.toLowerCase().replace(/\s+/g, '');
+        const str2 = document.getElementById('string2').value.toLowerCase().replace(/\s+/g, '');
+
+        const sortedStr1 = str1.split('').sort().join('');
+        const sortedStr2 = str2.split('').sort().join('');
+
+        document.getElementById('result').innerText = (sortedStr1 === sortedStr2) ? 'Anagram' : 'Not an Anagram';
+      }
+    </script>
+</body>
+</html>
